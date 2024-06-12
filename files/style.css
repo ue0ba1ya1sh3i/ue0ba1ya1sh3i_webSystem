@@ -1,0 +1,292 @@
+/*全体に対する設定*/
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/*スクロールバーの設定*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #7e7e7e;
+}
+
+/*inputの枠線を消す*/
+input {
+    border: none;
+    outline: none;
+}
+
+/*aの下線を消す*/
+a {
+    text-decoration: none;
+}
+
+/*動画を背景にする*/
+.backgroundVideo {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+  
+.backgroundVideo video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*ダイアログボックスの実装*/
+div#dialog {
+    display: none;
+    width: 350px;
+    background-color: rgba(189, 189, 189, 0.8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+}
+
+div.dialogAnimation {
+    animation: fadeDown 0.7s ease forwards;
+}
+
+div.dialog-bottom {
+    padding: 5px;
+    background-color: rgba(189, 189, 189, 0.8);
+}
+
+p#dialog-title {
+    color: #333;
+    padding: 0 1.8rem 0 0;
+}
+
+p#dialog-message {
+    color: #333;
+    text-align: center;
+    margin: 15px;
+}
+
+div#dialog-content {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+input#dialog-text {
+    margin: 0 10px 10px 0;
+    background-color: rgba(129, 129, 129, 0.8);
+    color: rgb(255, 255, 255, 0.8);
+    width: 70%;
+    height: 120%;
+    padding: 5px;
+}
+
+input#dialog-button {
+    margin: 0 0 10px 0;
+    background-color: rgba(129, 129, 129, 0.8);
+    color: rgb(255, 255, 255, 0.8);
+    width: 30%;
+    height: 120%;
+    padding: 5px;
+}
+
+input#dialog-button:hover {
+    background-color: rgba(128, 126, 248, 0.8);
+    transition: .6s;
+}
+
+/*閉じるボタンの実装*/
+div#closeButton{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 34.5px;
+    font-size: 100%;
+    font-weight: bold;
+    background-color: rgba(189, 189, 189, 0.8);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.3em;
+    line-height: 1.3em;
+    cursor: pointer;
+    transition: .2s;
+}
+
+div#closeButton:hover{
+    background-color: #ff3737;
+    color: #fff;
+}
+
+/*ヘッダーの設定*/
+header {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    z-index: 300;
+}
+
+header div#header-link a {
+    font-size: 20px;
+    margin: 0 10px 0 10px;
+    color: #e4e4e4;
+}
+
+/*メインの固定など*/
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1e3;
+    padding: 10px;
+    width: 80%;
+    height: 70%;
+    border-radius: 30px;
+    z-index: 100;
+}
+
+/*フッターの固定*/
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/*時計のスタイル*/
+div.clock {
+    text-align: center;
+    color: #ffffff;
+    font-size: 270%;
+    background: transparent;
+    animation: fadeIn 1s ease 0.5s 1 normal backwards;
+}
+
+/*フェードダウンするアニメーション*/
+@keyframes fadeDown {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -70%); /* 初期位置を上にずらす */
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%); /* 最終位置は中央 */
+    }
+  }
+
+/*フェードインするアニメーション*/
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+/*600px未満の時に適用するcss*/
+@media (max-width: 600px) {
+    /*ヘッダーの設定*/
+    header {
+        background-color: #363636;
+    }
+
+    div.title p {
+        text-align: center;
+        color: #fff8e9;
+        font-size: 20px;
+        display: block;
+    }
+
+    /*ハンバーガーメニューの実装*/
+    header div.title label {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        height: 30px;
+        width: 30px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+        border-radius: 5px;
+        background-color: #e4e4e4;
+    }
+
+    header div.title label span,header div.title label span:before,header div.title label span:after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 15px;
+        border-radius: 3px;
+        background-color: #363636;
+        position: absolute;
+    }
+
+    header div.title label span:before {
+        bottom: 6px;
+    }
+
+    header div.title label span:after {
+        top: 6px;
+    }
+
+    div.link {
+        display: none;
+    }
+    
+    /*時計を隠す*/
+    div.clock {
+        display: none;
+    }
+}
+
+/*600px以上の時に適用されるcss*/
+@media (min-width: 600px) {
+    /*ヘッダーの設定*/
+    header {
+        background: transparent;
+    }
+
+    div.title {
+        display: none;
+    }
+
+    div#header-link {
+        display: flex;
+    }
+
+    header div.link a {
+        color: #ffffffea;
+    }
+
+    /*時計を表示する*/
+    div.clock {
+        display: block;
+    }
+}
