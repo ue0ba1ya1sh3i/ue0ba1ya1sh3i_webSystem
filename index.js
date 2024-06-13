@@ -46,6 +46,7 @@ expressApp.get("/", (req, res) => {
     res.render("index", {
         id: "home",
         html: pages.home[0],
+        css: "<style>" + pages.home[1] + "</style>"
     });
 });
 
