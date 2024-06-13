@@ -3,8 +3,8 @@ const express = require("express");
 const root = express.Router();
 const axios = require("axios");
 
-root.get("/:id", (req,res) => {
-    
+root.get("/", (req,res) => {
+
 });
 
 module.exports = root;
