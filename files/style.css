@@ -19,11 +19,12 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #7e7e7e;
+    border-radius: 10px;
 }
 
 /*inputの枠線を消す*/
@@ -244,6 +245,14 @@ div.clock {
     div.link {
         display: none;
     }
+
+    /*メインタグの中央添え*/
+    div.main {
+        overflow: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     
     /*時計を隠す*/
     div.clock {
@@ -252,7 +261,7 @@ div.clock {
 }
 
 /*600px以上の時に適用されるcss*/
-@media (min-width: 600px) {
+@media (min-width: 601px) {
     /*ヘッダーの設定*/
     header {
         background: transparent;
@@ -268,6 +277,15 @@ div.clock {
 
     header div.link a {
         color: #ffffffea;
+    }
+
+    /*メインタグ*/
+    div.main {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        overflow: scroll;
     }
 
     /*時計を表示する*/

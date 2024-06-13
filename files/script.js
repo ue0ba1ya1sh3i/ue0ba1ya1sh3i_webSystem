@@ -180,7 +180,7 @@ function startCode() {
 };
 
 //初期化
-if(window.innerWidth < 600) {
+if(window.innerWidth < 601) {
     hamburger(false);
     document.getElementById("header-link").style.flexFlow = "column";
 } else {
@@ -189,7 +189,7 @@ if(window.innerWidth < 600) {
 };
 
 window.addEventListener('resize', function() {
-    if(window.innerWidth < 600) {
+    if(window.innerWidth < 601) {
         hamburger(false);
         document.getElementById("header-link").style.flexFlow = "column";
     } else {

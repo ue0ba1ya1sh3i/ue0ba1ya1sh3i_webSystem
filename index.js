@@ -37,6 +37,7 @@ const pages = {
             height: 70%;
             border-radius: 30px;
             z-index: 100;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
         }`,
 
         `console.log("hello world!!!");`
