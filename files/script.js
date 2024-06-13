@@ -156,26 +156,35 @@ function hamburger(checked) {
 
 //スタートコード
 function startCode() {
-    //天気情報の取得
+    //天気コードの開始
+    weather();
+};
+
+//天気の取得コード
+function weather() {
+    //設定など
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "/program/weather/" + viewCookie("weather"), true);
+
+    //詳細な情報
     xhr.onload = (e) => {
     if (xhr.readyState === 4) {
         if (xhr.status === 200) {
             //ここでやっと天気情報を変数に格納できる
-            var weatherDeta = JSON.parse(xhr.responseText).deta;
+            var weatherDeta = JSON.parse(xhr.responseText);
             console.log(weatherDeta);
         } else {
             //エラー処理
             console.error(xhr.statusText);
         }
-    }
-    };
+    }};
+
     xhr.onerror = (e) => {
         //エラー処理
         console.error(xhr.statusText);
     };
 
+    //送信
     xhr.send();
 };
 

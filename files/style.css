@@ -155,6 +155,14 @@ header div#header-link a {
     color: #e4e4e4;
 }
 
+/*div.mainの基本的なスタイル*/
+div.main {
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    overflow: auto;
+}
+
 /*フッターの固定*/
 footer {
     position: fixed;
@@ -245,14 +253,6 @@ div.clock {
     div.link {
         display: none;
     }
-
-    /*メインタグの中央添え*/
-    div.main {
-        overflow: scroll;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
     
     /*時計を隠す*/
     div.clock {
@@ -281,11 +281,7 @@ div.clock {
 
     /*メインタグ*/
     div.main {
-        display: flex;
-        flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
-        overflow: scroll;
     }
 
     /*時計を表示する*/

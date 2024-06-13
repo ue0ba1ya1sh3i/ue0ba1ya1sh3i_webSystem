@@ -60,7 +60,7 @@ expressApp.get("/test", (req, res) => {
 });
 
 //ページの実装
-expressApp.get("/:page", (req, res) => {
+expressApp.get("/page/:page", (req, res) => {
     res.render("index", {id: req.params.page});
 });
 
@@ -70,7 +70,7 @@ expressApp.use("/program/weather", weatherRoot);
 
 //ニュースシステムのルーティング
 const newsRoot = require("./root/news");
-expressApp.use("/news", newsRoot);
+expressApp.use("/program/news", newsRoot);
 
 //サーバーの起動
 server.listen(process.env.PORT || 80, () => {
