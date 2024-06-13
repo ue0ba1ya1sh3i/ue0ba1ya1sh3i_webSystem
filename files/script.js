@@ -197,3 +197,6 @@ window.addEventListener('resize', function() {
         document.getElementById("header-link").style.display = "block";
     };
 });
+
+//node.jsから送られてきたJSを最後に実行する
+run();

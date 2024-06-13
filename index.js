@@ -37,7 +37,9 @@ const pages = {
             height: 70%;
             border-radius: 30px;
             z-index: 100;
-        }`
+        }`,
+
+        `console.log("hello world!!!");`
     ]
 };
 
@@ -46,7 +48,8 @@ expressApp.get("/", (req, res) => {
     res.render("index", {
         id: "home",
         html: pages.home[0],
-        css: "<style>" + pages.home[1] + "</style>"
+        css: "<style>" + pages.home[1] + "</style>",
+        js: "<script> function run() {" + pages.home[2] + "}</script>"
     });
 });
 
