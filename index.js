@@ -21,14 +21,15 @@ expressApp.get("/", (req, res) => {
     res.render("index", {id: "home"});
 });
 
+//テストページ(HTML/CSS/JSの開発用)
+expressApp.get("/test", (req, res) => {
+    res.render("test");
+});
+
 //ページの実装
 expressApp.get("/:page", (req, res) => {
     res.render("index", {id: req.params.page});
 });
-
-//テストページのルーティング
-const testRoot = require("./root/test");
-expressApp.use("/program/test", testRoot);
 
 //天気情報システムのルーティング
 const weatherRoot = require("./root/weather");
