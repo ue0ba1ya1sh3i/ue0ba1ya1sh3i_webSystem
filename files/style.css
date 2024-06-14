@@ -174,9 +174,9 @@ main {
 /*div.mainの基本的なスタイル*/
 div.main {
     flex-wrap: wrap;
-    justify-content: center;
     display: flex;
     overflow: auto;
+    justify-content: center;
 }
 
 /*フッターの固定*/

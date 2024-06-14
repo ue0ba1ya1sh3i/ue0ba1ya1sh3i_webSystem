@@ -19,25 +19,49 @@ expressApp.use('/files', express.static('files'));
 //ページのデータ集
 const pages = {
     home: [
-        `<div class="left"></div>
-        <div class="main">
-            <!--ここに要素が入る--> 
-        </div>
-        <div class="right"></div>`,
+        `<div class="widget">
 
-        `main {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            display: flex;
-            transform: translate(-50%, -50%);
-            background-color: #f1f1f1e3;
-            padding: 10px;
-            width: 80%;
-            height: 70%;
-            border-radius: 30px;
-            z-index: 100;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        </div>
+
+        <div class="widget">
+                
+        </div>
+
+        <div class="widget">
+                
+        </div>
+
+        <div class="widget">
+                
+        </div>
+
+        <div class="widget">
+                
+        </div>
+
+        <div class="widget">
+                
+        </div>
+
+        <div class="widget">
+                
+        </div>
+            
+        <div class="widget">
+                
+        </div>
+
+        <div class="widget">
+                
+        </div>`,
+
+        `div.widget {
+            width: 290px;
+            height: 250px;
+            margin: 15px 0 15px 0;
+            border-radius: 10px;
+            background-color: #ffffff00;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
         }`,
 
         `console.log("hello world!!!");`
