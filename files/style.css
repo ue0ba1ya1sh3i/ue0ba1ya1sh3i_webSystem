@@ -19,11 +19,11 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #fff;
+    background-color: #ffffff00;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #7e7e7e;
+    background-color: #929292cc;
     border-radius: 10px;
 }
 
@@ -153,6 +153,22 @@ header div#header-link a {
     font-size: 20px;
     margin: 0 10px 0 10px;
     color: #e4e4e4;
+}
+
+/*メイン*/
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1e3;
+    padding: 10px;
+    width: 80%;
+    height: 70%;
+    border-radius: 30px;
+    z-index: 100;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
 }
 
 /*div.mainの基本的なスタイル*/
