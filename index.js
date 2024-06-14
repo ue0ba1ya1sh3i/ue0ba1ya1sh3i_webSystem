@@ -65,6 +65,14 @@ const pages = {
         }`,
 
         `console.log("hello world!!!");`
+    ],
+
+    myApp: [
+        `<h1>my Apps</h1>`,
+
+        `h1: {color: blue;}`,
+
+        `console.log("hello world!!!");`
     ]
 };
 
