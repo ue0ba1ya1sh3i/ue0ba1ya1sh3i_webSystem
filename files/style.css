@@ -58,8 +58,8 @@ a {
 /*ダイアログボックスの実装*/
 div#dialog {
     display: none;
-    width: 350px;
-    background-color: rgba(189, 189, 189, 0.8);
+    width: 310px;
+    background-color: rgba(189, 189, 189);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -72,13 +72,20 @@ div.dialogAnimation {
 }
 
 div.dialog-bottom {
+    display: flex;
     padding: 5px;
     background-color: rgba(189, 189, 189, 0.8);
+    border-bottom: 2px solid #7c7c7c;
+}
+
+div.dialog-bottom img {
+    width: 22px;
+    height: 22px;
+    margin: 0 7px 0 7px;
 }
 
 p#dialog-title {
     color: #333;
-    padding: 0 1.8rem 0 0;
 }
 
 p#dialog-message {
@@ -88,14 +95,14 @@ p#dialog-message {
 }
 
 div#dialog-content {
-    margin: 15px;
+    margin: 10px;
     display: flex;
     justify-content: center;
 }
 
 input#dialog-text {
     margin: 0 10px 10px 0;
-    background-color: rgba(129, 129, 129, 0.8);
+    background-color: rgba(73, 73, 73, 0.8);
     color: rgb(255, 255, 255, 0.8);
     width: 70%;
     height: 120%;
@@ -103,16 +110,18 @@ input#dialog-text {
 }
 
 input#dialog-button {
-    margin: 0 0 10px 0;
-    background-color: rgba(129, 129, 129, 0.8);
+    margin: 0 0 5px 0;
+    background-color: rgba(73, 73, 73, 0.8);
     color: rgb(255, 255, 255, 0.8);
     width: 30%;
     height: 120%;
+    border-radius: 5px;
     padding: 5px;
+    transition: .6s;
 }
 
 input#dialog-button:hover {
-    background-color: rgba(128, 126, 248, 0.8);
+    background-color: rgba(49, 49, 49, 0.8);
     transition: .6s;
 }
 
@@ -173,6 +182,7 @@ main {
 
 /*div.mainの基本的なスタイル*/
 div.main {
+    align-items: center;
     flex-wrap: wrap;
     display: flex;
     overflow: auto;

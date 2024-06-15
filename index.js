@@ -70,30 +70,35 @@ const pages = {
     myApp: [
         `<h1>my Apps</h1>`,
 
-        `h1: {color: blue;}`,
+        `h1 {color: blue;}`,
 
-        `console.log("hello world!!!");`
+        `dialog.alert("このページは開発中です...","警告")`
     ]
 };
 
 //メインページの実装
-expressApp.get("/", (req, res) => {
+expressApp.get("/page", (req, res) => {
     res.render("index", {
         id: "home",
         html: pages.home[0],
         css: "<style>" + pages.home[1] + "</style>",
-        js: "<script> function run() {" + pages.home[2] + "}</script>"
+        js: "<script> function run() {" + pages.home[2] + "};</script>"
     });
 });
 
 //テストページ(HTML/CSS/JSの開発用)
-expressApp.get("/test", (req, res) => {
+expressApp.get("/page/test", (req, res) => {
     res.render("test");
 });
 
 //ページの実装
 expressApp.get("/page/:page", (req, res) => {
-    res.render("index", {id: req.params.page});
+    res.render("index", {
+        id: req.params.page,
+        html: pages[req.params.page][0],
+        css: "<style>" + pages[req.params.page][1] + "</style>",
+        js: "<script> function run() {" + pages[req.params.page][2] +"};</script>"
+    });
 });
 
 //天気情報システムのルーティング
