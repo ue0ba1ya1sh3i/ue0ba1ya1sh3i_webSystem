@@ -22,6 +22,7 @@ function updateClock() {
     // 1秒後に再度更新
     setTimeout(updateClock, 1000);
 };
+
 updateClock();
 
 //カレンダーのセットアップ
