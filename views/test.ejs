@@ -44,6 +44,7 @@
     <!--ダイアログボックスの実装-->
     <div id="dialog">
         <div class="dialog-bottom">
+            <img id="dialog-icon" alt="">
             <p id="dialog-title">ここにタイトルが入る</p>
             <div onclick="resetDialog()" id="closeButton">✕</div>
         </div>
@@ -74,7 +75,7 @@
     <script>
         function run() {
             //警告用
-            dialog.alert("This page is under development so we recommend that you leave this page unless you are involved.","Advice from the developer");
+            dialog.alert("This page is under development so we recommend that you leave this page unless you are involved.","Advice from the developer","3");
         };
     </script>
 

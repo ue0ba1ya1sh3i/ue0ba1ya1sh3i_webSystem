@@ -53,7 +53,7 @@ let dialogTitle = document.getElementById("dialog-title");
 let dialogMessage = document.getElementById("dialog-message");
 
 const dialog = {
-    prompt: function(message,type,canClose,title) {
+    prompt: function(message,type,canClose,title,icon) {
         //ダイアログボックスの表示
         document.getElementById("dialog").style.display = "block";
         document.getElementById("dialog").classList.add('dialogAnimation');
@@ -61,6 +61,9 @@ const dialog = {
         //メッセージの作成
         dialogTitle.textContent = title;
         dialogMessage.textContent = message;
+
+        //アイコンの作成
+        document.querySelector("#dialog-icon").src = "../files/alert" + icon + ".png";
 
         //✕で閉じることができるか
         if(canClose === false) {
@@ -74,7 +77,7 @@ const dialog = {
         );
     },
 
-    alert: function(message,title) {
+    alert: function(message,title,icon) {
         //ダイアログボックスの表示
         document.getElementById("dialog").style.display = "block";
         document.getElementById("dialog").classList.add('dialogAnimation');
@@ -82,6 +85,9 @@ const dialog = {
         //メッセージの作成
         dialogTitle.textContent = title;
         dialogMessage.textContent = message;
+
+        //アイコンの作成
+        document.querySelector("#dialog-icon").src = "../files/alert" + icon + ".png";
 
         //HTMLの挿入
         dialogContent.insertAdjacentHTML(
@@ -97,11 +103,11 @@ function dialogButton(type,message) {
         if(message === "name") {
             writeCookie("name",dialogTextBox);
             resetDialog();
-            dialog.prompt(viewCookie("name") + "さんですね、ようこそ、最後に天気を取得するためにあなたの地域を教えてくれませんか？","weather",false,"天気情報の設定");
+            dialog.prompt(viewCookie("name") + "さんですね、ようこそ、最後に天気を取得するためにあなたの地域を教えてくれませんか？","weather",false,"天気情報の設定","1");
         } else if(message === "weather") {
             writeCookie("weather",dialogTextBox);
             resetDialog();
-            dialog.alert("質問の回答ありがとうございます!皆様に機能の便利さを知ってもらうために努力をしているので何卒宜しくお願い致します！","設定の完了");
+            dialog.alert("質問の回答ありがとうございます!皆様に機能の便利さを知ってもらうために努力をしているので何卒宜しくお願い致します！","設定の完了","1");
             writeCookie("visited",true);
             startCode();
         };
@@ -136,7 +142,7 @@ try {
     viewCookie("visited");
     startCode();
 } catch(e) {
-    dialog.prompt("こんにちは!突然ですがこのサイトを使用するにはあなたに関しての情報がいくつかいります！最初に名前を教えてください。","name",false,"ようこそ");
+    dialog.prompt("こんにちは!突然ですがこのサイトを使用するにはあなたに関しての情報がいくつかいります！最初に名前を教えてください。","name",false,"ようこそ","1");
 };
 
 //ハンバーガーメニューのボタンが押されたとき
@@ -164,7 +170,7 @@ function startCode() {
 function weather() {
     //設定など
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "/program/weather/" + viewCookie("weather"), true);
+    xhr.open("GET", "../program/weather/" + viewCookie("weather"), true);
 
     //詳細な情報
     xhr.onload = (e) => {

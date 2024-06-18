@@ -78,10 +78,10 @@ div.dialog-bottom {
     border-bottom: 2px solid #7c7c7c;
 }
 
-div.dialog-bottom img {
+img#dialog-icon {
     width: 22px;
     height: 22px;
-    margin: 0 7px 0 7px;
+    margin: 0 3px 0 0px;
 }
 
 p#dialog-title {
