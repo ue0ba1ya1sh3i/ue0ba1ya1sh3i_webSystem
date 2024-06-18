@@ -163,6 +163,9 @@ function hamburger(checked) {
 
 //スタートコード
 function startCode() {
+    //node.jsから送られてきたコードを開始
+    run();
+
     //天気コードの開始
     weather();
 };
@@ -213,6 +216,3 @@ window.addEventListener('resize', function() {
         document.getElementById("header-link").style.display = "block";
     };
 });
-
-//node.jsから送られてきたJSを最後に実行する
-run();

@@ -42,10 +42,6 @@ const pages = {
         <div class="widget">
                 
         </div>
-
-        <div class="widget">
-                
-        </div>
             
         <div class="widget">
                 
@@ -61,7 +57,7 @@ const pages = {
             margin: 10px;
             border-radius: 10px;
             background-color: #ffffff00;
-            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
         }`,
 
         `console.log("hello world!!!");`

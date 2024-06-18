@@ -38,21 +38,19 @@ a {
     text-decoration: none;
 }
 
-/*動画を背景にする*/
-.backgroundVideo {
-    position: relative;
+/*背景*/
+body {
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    background: linear-gradient(-45deg, #dbaacf, #a8c2ee, #c2f9d0, #ffdea5) fixed;
+    background-size: 800% 800%;
+    animation: GradietionAnimation 9s ease infinite;
 }
-  
-.backgroundVideo video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+@keyframes GradietionAnimation { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 /*ダイアログボックスの実装*/
@@ -161,7 +159,7 @@ header {
 header div#header-link a {
     font-size: 20px;
     margin: 0 10px 0 10px;
-    color: #e4e4e4;
+    color: #5a5a5a;
 }
 
 /*メイン*/
@@ -175,9 +173,8 @@ main {
     padding: 10px;
     width: 80%;
     height: 70%;
-    border-radius: 30px;
+    border-radius: 10px;
     z-index: 100;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 /*div.mainの基本的なスタイル*/
@@ -199,8 +196,8 @@ footer {
 /*時計のスタイル*/
 div.clock {
     text-align: center;
-    color: #ffffff;
-    font-size: 270%;
+    color: #5a5a5a;
+    font-size: 250%;
     background: transparent;
     animation: fadeIn 1s ease 0.5s 1 normal backwards;
 }
@@ -241,6 +238,10 @@ div.clock {
         color: #fff8e9;
         font-size: 20px;
         display: block;
+    }
+
+    header div#header-link a {
+        color: #fff8e9;
     }
 
     /*ハンバーガーメニューの実装*/
