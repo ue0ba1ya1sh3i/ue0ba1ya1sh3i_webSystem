@@ -5,6 +5,7 @@
 
 # table of contents
 - ### [Current issues](#CurrentIssues)
+- ### [In production](#InProduction)
 
 <a id="CurrentIssues"></a>
 
@@ -13,3 +14,8 @@
     - ### Migrating current issues to features on github
     - ### Double-check your repository settings
     - ### Setting up security
+
+<a id="InProduction"></a>
+
+# In production
+- ### Web page system(index.js)
