@@ -1,7 +1,7 @@
 {
   "name": "ue0ba1ya1sh3i_websystem",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project is primarily developed by ue0ba1ya1sh3i.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
