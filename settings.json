@@ -1,4 +1,16 @@
 {
-    "testPassword": "0113",
-    "adminPassword": "1364"
+  "testPassword": "0113",
+  "adminPassword": "1364",
+  "page": {
+    "home": {
+      "html": "<h1>home</h1>",
+      "css": "h1 {color: blue}",
+      "js": "window.alert(`home`)"
+    },
+    "blog": {
+      "html": "<p>aaa</p>",
+      "css": "p {color: red}",
+      "js": "window.alert(`a`)"
+    }
+  }
 }

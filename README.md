@@ -6,6 +6,7 @@
 # table of contents
 - ### [Current issues](#CurrentIssues)
 - ### [In production](#InProduction)
+- ### [memo](#memo)
 
 <a id="CurrentIssues"></a>
 
@@ -19,3 +20,9 @@
 
 # In production
 - ### Web page system(index.js)
+
+<a id="memo"></a>
+
+# memo
+- ### codeMemo
+    - ### fs.writeFile('settings.json', JSON.stringify(jsonData, null, 2), (err) => {if(err) {console.error("Error:" + err);}});
