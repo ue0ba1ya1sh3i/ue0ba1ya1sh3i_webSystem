@@ -20,6 +20,7 @@
 
 # In production
 - ### Web page system(index.js)
+- ### front code(html/css/js)
 
 <a id="memo"></a>
 
