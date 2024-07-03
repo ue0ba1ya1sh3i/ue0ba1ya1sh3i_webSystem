@@ -1,15 +1,15 @@
-# ue0ba1ya1sh3iの概要
-* ### このプロジェクトはue0ba1ya1hs3iというnode.jsで作られたウェブページを開発しています。
+# ue0ba1ya1sh3i_webSystem
+- ### This project is primarily developed by ue0ba1ya1sh3i.
+- ### The project is written in node.js, so please refer to package.json and install the modules beforehand.
+- ### This time, we are using ngrok to make it public to the world. If you need it, please prepare it yourself!
 
-# 詳細(意気込みなど)
-* ### githubを久しぶりに使ったのでなれないところはどんどん勉強して身に着けていきたい。
-* ### node.jsについてもっと知り、JavaScriptの学習を深めれるようにする
+# table of contents
+- ### [Current issues](#CurrentIssues)
 
-# 現時点での課題
-* ### github(git)のディレクトリ整理
-* ### HTMLにプログラムの結果や入力を可能にする
-* ### 天気情報プログラムの完成
-* ### アニメーションや影などをつけより臨場感があるウェブアプリに。
-* ### レスポンスの可能を実現
-* ### きちんとしたスタイルに！
-* ### 最初の天気の設定の完成
+<a id="CurrentIssues"></a>
+
+# Current issues
+- ### Using github features to increase productivity
+    - ### Migrating current issues to features on github
+    - ### Double-check your repository settings
+    - ### Setting up security
