@@ -22,13 +22,40 @@ expressApp.use('/files', express.static('files'));
 //Load json
 const settings = JSON.parse(fs.readFileSync('settings.json'));
 
+//pageFiles
+const page = {
+    home: {
+        html: "",
+        css: "",
+        js: ""
+    },
+
+    myApp: {
+        html: "",
+        css: "",
+        js: "",
+    },
+
+    settings: {
+        html: "",
+        css: "",
+        js: "",
+    },
+        
+    blog: {
+        html: "",
+        css: "",
+        js: ""
+    }
+};
+
 //mainPage
 expressApp.get("/", (req, res) => {
     res.render("index", {
         id: "home",
-        html: settings.page.home.html,
-        css: "<style>" + settings.page.home.css + "</style>",
-        js: "<script> function sendedCode() {" + settings.page.home.js + "};</script>"
+        html: page.home.html,
+        css: "<style>" + page.home.css + "</style>",
+        js: "<script> function sendedCode() {" + page.home.js + "};</script>"
     });
 });
 
@@ -57,9 +84,9 @@ expressApp.get("/:page", (req, res) => {
     try {
         res.render("index", {
             id: req.params.page,
-            html: settings.page[req.params.page].html,
-            css: "<style>" + settings.page[req.params.page].css + "</style>",
-            js: "<script> function sendedCode() {" + settings.page[req.params.page].js +"};</script>"
+            html: page[req.params.page].html,
+            css: "<style>" + page[req.params.page].css + "</style>",
+            js: "<script> function sendedCode() {" + page[req.params.page].js +"};</script>"
         });
     } catch(e) {
         res.sendStatus(404);
