@@ -73,6 +73,7 @@ expressApp.get("/test/:id", (req, res) => {
 expressApp.get("/admin/:id", (req, res) => {
     if(req.params.id === settings.adminPassword) {
         res.render("admin");
+        console.error("Warning: Entered the admin page");
     } else {
         res.sendStatus(404);
         console.error("Warning: Admin page password is incorrect");
