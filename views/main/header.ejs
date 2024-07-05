@@ -11,10 +11,6 @@
         display: none;
     }
 
-    div#headerLink {
-        display: flex;
-    }
-
     div#headerLink a {
         font-size: 25px;
         margin: 0 25px 0 0;
@@ -30,15 +26,12 @@
             margin: 0 0 5px 10px;
         }
 
-        p#headerLetter {
-            text-align: center;
+        a#headerLetter {
+            display: flex;
+            justify-content: center;
             font-size: 25px;
             color: white;
             padding: 0 0 10px 0;
-        }
-
-        div#headerLink {
-            display: grid;
         }
 
         /*hamburger*/
@@ -76,7 +69,7 @@
 
 <header>
     <div id="headerTitle">
-        <p id="headerLetter">ue0ba1ya1sh3i</p>
+        <a id="headerLetter" href="./">ue0ba1ya1sh3i</a>
 
         <input style="display: none;" onclick="hamburger(hamburgerButton.checked);" type="checkbox" id="hamburgerButton">
         <label for="hamburgerButton"><span></span></label>
@@ -108,4 +101,12 @@
     if(window.innerWidth < 600) {
         hamburger(false);
     };
+
+    window.addEventListener('resize', function() {
+        if(window.innerWidth < 600) {
+            hamburger(false);
+        } else {
+            hamburgerLink.style.display = "flex";
+        }
+    });
 </script>
