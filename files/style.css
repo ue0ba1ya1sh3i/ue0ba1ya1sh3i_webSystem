@@ -10,6 +10,14 @@
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
+
+    /*can't copy*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
 }
 
 a {

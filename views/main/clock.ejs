@@ -1,0 +1,54 @@
+<style>
+    div.clock {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+        font-size: 250%;
+        background-color: #363636;
+        animation: fadeIn 1s ease 0.5s 1 normal backwards;
+        padding: 15px;
+        border-radius: 10px 0 0 0;
+    }
+
+    p#clock {
+        border-bottom: 3px solid #686868;
+    }
+</style>
+
+<div class="clock">
+    <p id="clock">読み込み中</p>
+    <p id="calendar">読み込み中</p>
+</div>
+
+<script>
+    //calendar
+    var calendar = new Date();
+    var day = calendar.getDay();
+    var date = calendar.getDate();
+    var month = calendar.getMonth();
+    var daydeta = ["日","月","火","水","木","金","土"]
+    document.getElementById("calendar").textContent = month + "月" + date + "日" + daydeta[day] + "曜日";
+
+    //clock
+    function updateClock() {
+        const now = new Date();
+
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+
+        const displayHours = hours.toString().padStart(2, "0");
+        const displayMinutes = minutes.toString().padStart(2, "0");
+        const displaySeconds = seconds.toString().padStart(2, "0");
+
+        const clockElement = document.getElementById("clock");
+
+        clockElement.textContent = `${displayHours}:${displayMinutes}:${displaySeconds}`;
+
+        setTimeout(updateClock, 1000);
+    };
+
+    updateClock();
+</script>
