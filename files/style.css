@@ -1,7 +1,17 @@
+/*GoogleFonts*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+
+    /*normalFont*/
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
 }
+
 a {
     text-decoration: none;
 }

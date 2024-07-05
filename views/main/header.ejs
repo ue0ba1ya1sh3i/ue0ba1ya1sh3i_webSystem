@@ -1,0 +1,111 @@
+<style>
+    header {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        padding: 10px;
+        background-color: #363636;
+    }
+
+    div#headerTitle {
+        display: none;
+    }
+
+    div#headerLink {
+        display: flex;
+    }
+
+    div#headerLink a {
+        font-size: 25px;
+        margin: 0 15px 0 0;
+        color: white
+    }
+
+    @media (max-width: 600px) {
+        div#headerTitle {
+            display: block;
+        }
+
+        div#headerLink a {
+            margin: 0 0 5px 10px;
+        }
+
+        p#headerLetter {
+            text-align: center;
+            font-size: 25px;
+            color: white;
+            padding: 0 0 10px 0;
+        }
+
+        div#headerLink {
+            display: grid;
+        }
+
+        /*hamburger*/
+        header div#headerTitle label {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            height: 35px;
+            width: 35px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            background-color: #e4e4e4;
+        }
+
+        header div#headerTitle label span,header div#headerTitle label span:before,header div#headerTitle label span:after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 18px;
+            background-color: #363636;
+            position: absolute;
+        }
+
+        header div#headerTitle label span:before {
+            bottom: 6px;
+        }
+
+        header div#headerTitle label span:after {
+            top: 6px;
+        }
+    }
+</style>
+
+<header>
+    <div id="headerTitle">
+        <p id="headerLetter">ue0ba1ya1sh3i</p>
+
+        <input style="display: none;" onclick="hamburger(hamburgerButton.checked);" type="checkbox" id="hamburgerButton">
+        <label for="hamburgerButton"><span></span></label>
+    </div>
+
+    <div id="headerLink">
+        <a href="./">- Home</a>
+        <a href="/myApp">- MyApp</a>
+        <a href="/settings">- Settings</a>
+        <a href="/blog">- Blog</a>
+    </div>
+</header>
+
+<script>
+    const hamburgerButton = document.getElementById("hamburgerButton");
+    const hamburgerLink = document.getElementById("headerLink");
+    const hamburgerLetter = document.getElementById("headerLetter");
+
+    function hamburger(check) {
+        if(check) {
+            hamburgerLink.style.display = "grid";
+            hamburgerLetter.style.borderBottom = "3px solid #686868";
+        } else {
+            hamburgerLink.style.display = "none";
+            hamburgerLetter.style.borderBottom = "";
+        };
+    };
+
+    if(window.innerWidth < 600) {
+        hamburger(false);
+    };
+</script>
