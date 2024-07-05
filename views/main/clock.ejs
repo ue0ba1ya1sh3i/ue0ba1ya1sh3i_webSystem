@@ -5,7 +5,7 @@
         right: 0;
         text-align: center;
         color: white;
-        font-size: 250%;
+        font-size: 45px;
         background-color: #363636;
         animation: fadeIn 1s ease 0.5s 1 normal backwards;
         padding: 10px;
@@ -14,6 +14,18 @@
 
     p#clock {
         border-bottom: 3px solid #686868;
+    }
+
+    @media (max-width: 600px) {
+        div.clock {
+            display: none;
+        }
+    }
+
+    @media (min-width: 601px) {
+        div.clock {
+            display: block;
+        }
     }
 </style>
 

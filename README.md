@@ -25,5 +25,3 @@
 <a id="memo"></a>
 
 # memo
-- ### codeMemo
-    - ### fs.writeFile('settings.json', JSON.stringify(jsonData, null, 2), (err) => {if(err) {console.error("Error:" + err);}});

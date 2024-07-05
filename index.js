@@ -72,7 +72,10 @@ expressApp.get("/test/:id", (req, res) => {
 //Admin Settings Page
 expressApp.get("/admin/:id", (req, res) => {
     if(req.params.id === settings.adminPassword) {
-        res.render("admin");
+        res.render("admin", {
+            adminPass: settings.adminPassword,
+            testPass: settings.testPassword
+        });
         console.error("Warning: Entered the admin page");
     } else {
         res.sendStatus(404);
@@ -92,6 +95,17 @@ expressApp.get("/:page", (req, res) => {
     } catch(e) {
         res.sendStatus(404);
     };
+});
+
+//socket.io
+io.on('changeAdminPass', function(pass){
+    settings.adminPassword = pass;
+    fs.writeFile('settings.json', JSON.stringify(settings, null, 2), (err) => {if(err) {console.error("Error:" + err);}});
+});
+
+io.on('changeTestPass', function(pass){
+    settings.adminPassword = pass;
+    fs.writeFile('settings.json', JSON.stringify(settings, null, 2), (err) => {if(err) {console.error("Error:" + err);}});
 });
 
 //Start server

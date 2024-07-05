@@ -6,19 +6,110 @@
     <title>ue0ba1ya1sh3i | admin</title>
     <link rel="stylesheet" href="../files/style.css">
     <link rel="shortcut icon" href="../files/icon.png" type="image/x-icon">
+    <style>
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        div.widget {
+            width: 350px;
+            height: 300px;
+            background-color: #363636;
+            margin: 25px 0 25px 0;
+            border-radius: 10px;
+        }
+
+        p.widgetTitle {
+            padding: 5px;
+            font-size: 40px;
+            text-align: center;
+            border-bottom: 3px solid #686868;
+            color: white;
+            font-size: 20px;
+        }
+
+        div.result p {
+            color: white;
+            font-size: 20px;
+            margin: 0 0 0 10px;
+        }
+
+        div.box {
+            margin: 10px 0 0 10px;
+        }
+
+        div.box input {
+            background-color: #686868;
+            color: white;
+            width: 200px;
+            padding: 5px;
+        }
+        
+        div.box button {
+            padding: 5px;
+            background-color: #686868;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <%- include('main/header') %>
 
     <main>
+        <div class="widget">
+            <p class="widgetTitle" style="color: white;">adminPassword</p>
+            <div class="result">
+                <p>- nowPass: <%= adminPass %></p>
+                <div class="box">
+                    <input type="text" id="adminPass">
+                    <button onclick="change('adminPass')">change</button>
+                </div>
+            </div>
+        </div>
 
+        <div class="widget">
+            <p class="widgetTitle" style="color: white;">testPassword</p>
+            <div class="result">
+                <p>- nowPass: <%= testPass %></p>
+                <div class="box">
+                    <input type="text" id="testPass">
+                    <button onclick="change('testPass')">change</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget">
+            <p class="widgetTitle" style="color: white;">template</p>
+            <div class="result">
+                <p>- This widget is template.</p>
+            </div>
+        </div>
     </main>
 
     <footer>
         <%- include('main/clock') %>
     </footer>
 
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        function sendedCode() {
+
+        };
+
+        const socket = io();
+        function change(content) {
+            if(content === "adminPass") {
+                var textBox = document.getElementById("adminPass").value;
+                window.alert(textBox);
+            } else if(content === "testPass") {
+                var textBox = document.getElementById("testPass").value;
+                window.alert(textBox);
+            };
+        };
+    </script>
     <script src="../files/script.js"></script>
 </body>
 </html>
