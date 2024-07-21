@@ -104,7 +104,7 @@ expressApp.post('/changePass/' + settings.changePassword, (req, res) => {
     fs.writeFileSync( './settings.json', JSON.stringify(settings));
 
     consoleColor("changedPass","green");
-    res.send("changedPass");
+    res.send("changed Pass");
 });
 
 //Start server
