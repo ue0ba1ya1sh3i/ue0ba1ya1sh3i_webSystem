@@ -37,12 +37,18 @@ function consoleColor(text,color) {
 const settings = JSON.parse(fs.readFileSync('settings.json'), null, 2);
 
 //mainPage
+visitNum = 0;
 expressApp.get("/", (req, res) => {
     var html = fs.readFileSync("./pages/home.html", 'utf-8');
 
+    //visitNum
+    visitNum = visitNum + 1;
+    consoleColor(visitNum + "th visit","green");
+
     res.render("index", {
         id: "home",
-        html: html
+        html: html,
+        js: "<script>function sendedCode() {document.getElementById('welcomeTitle').textContent = 'ようこそ(総訪問数: " + visitNum + "回目)';};</script>"
     });
 });
 
@@ -80,18 +86,29 @@ expressApp.get("/admin/:id", (req, res) => {
 expressApp.get("/:page", (req, res) => {
     try {
         var text = fs.readFileSync("./pages/" + req.params.page + ".html", 'utf-8');
+        var js = frontJS[req.params.page];
+        console.log(js);
 
         res.render("index", {
             id: req.params.page,
-            html: text
+            html: text,
+            js: "<script>function sendedCode() {" + js + "};</script>"
         });
     } catch(e) {
+        console.log(e);
         res.render("error", {
             code: "404",
             message: "page not found"
         });
     };
 });
+
+//frontJS
+var frontJS = {
+    blog: "",
+    myApp: "",
+    settings: ""
+};
 
 //blog
 expressApp.get("/blog/:id", (req, res) => {
