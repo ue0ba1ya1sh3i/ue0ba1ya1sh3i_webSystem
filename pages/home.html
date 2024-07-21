@@ -1,5 +1,77 @@
-<script>
-    function sendedCode() {
+<style>
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 
-    };
+    div.widget {
+        animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #363636;
+        border: 2px solid rgb(104, 104, 104);
+        border-radius: 10px;
+    }
+
+    p.widgetTitle {
+        color: white;
+        font-size: 20px;
+    }
+
+    img.widgetImage {
+        text-align: center;
+        width: 280px;
+        border-radius: 10px;
+        display: flex;
+        margin: 10px;
+        opacity: 0.7;
+    }
+
+    p.widgetSubTitle {
+        color: white;
+        font-size: 15px;
+        padding: 0 0 5px 0;
+        margin: 5px 0 10px 0;
+        border-bottom: 3px solid rgb(104, 104, 104);
+    }
+</style>
+
+<main>
+    <div class="widget">
+        <a href="/blog/00001">
+            <p class="widgetTitle">ようこそ</p>
+            <p class="widgetSubTitle">このサイトについての説明はブログにのしておきます。</p>
+            <img src="../files/notice/welcome.png" alt="ようこそ" class="widgetImage">
+        </a>
+    </div>
+
+    <div class="widget">
+        <a href="/myApp">
+            <p class="widgetTitle">MyApp</p>
+            <p class="widgetSubTitle">このサイトは開発して公開しているプログラムを試すことができます</p>
+            <img src="../files/notice/apps.png" alt="アプリ" class="widgetImage">
+        </a>
+    </div>
+
+    <div class="widget">
+        <a href="/blog">
+            <p class="widgetTitle">Blog</p>
+            <p class="widgetSubTitle">これは私ブログ(ページのお知らせなど)を知らせているページです。</p>
+            <img src="../files/notice/blog.png" alt="りんご" class="widgetImage">
+        </a>
+    </div>
+
+    <div class="widget">
+        <a href="/">
+            <p class="widgetTitle">テンプレート</p>
+            <p class="widgetSubTitle">このウィジェットはテンプレートです</p>
+            <img src="../files/notice/apple.png" alt="りんご" class="widgetImage">
+        </a>
+    </div>
+</main>
+
+<script>
+    function sendedCode() {};
 </script>

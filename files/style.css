@@ -35,15 +35,15 @@ button {
 }
 
 @media (max-width: 600px) {
-    main {
-        margin: 65px 0 0 0;
-    }
+  main {
+      margin: 66px 0 0 0;
+  }
 }
 
 @media (min-width: 601px) {
-    main {
-        margin: 50px 0 0 0;
-    }
+  main {
+      margin: 56px 0 0 0;
+  }
 }
 
 /*animation*/

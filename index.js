@@ -93,6 +93,14 @@ expressApp.get("/:page", (req, res) => {
     };
 });
 
+//blog
+expressApp.get("/blog/:id", (req, res) => {
+    res.render("error", {
+        code: "404",
+        message: "page not found"
+    });
+});
+
 //changePassword
 expressApp.use(express.json());
 expressApp.post('/changePass/' + settings.changePassword, (req, res) => {
