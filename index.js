@@ -34,7 +34,7 @@ function consoleColor(text,color) {
 };
 
 //Load json
-const settings = JSON.parse(fs.readFileSync('settings.json'));
+const settings = JSON.parse(fs.readFileSync('settings.json'), null, 2);
 
 //mainPage
 expressApp.get("/", (req, res) => {
@@ -91,6 +91,19 @@ expressApp.get("/:page", (req, res) => {
             message: "page not found"
         });
     };
+});
+
+//changePassword
+expressApp.use(express.json());
+expressApp.post('/changePass/' + settings.changePassword, (req, res) => {
+    const password = req.body;
+
+    //change
+    settings.adminPassword = password.adminPass;
+    settings.testPassword = password.testPass;
+    fs.writeFileSync( './settings.json', JSON.stringify(settings));
+
+    res.send("changed");
 });
 
 //Start server
