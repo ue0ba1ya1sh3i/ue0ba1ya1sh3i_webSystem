@@ -22,49 +22,22 @@ expressApp.use('/files', express.static('files'));
 //Load json
 const settings = JSON.parse(fs.readFileSync('settings.json'));
 
-//pageFiles
-const page = {
-    home: {
-        html: "",
-        css: "",
-        js: ""
-    },
-
-    myApp: {
-        html: "",
-        css: "",
-        js: "",
-    },
-
-    settings: {
-        html: "",
-        css: "",
-        js: "",
-    },
-        
-    blog: {
-        html: "",
-        css: "",
-        js: ""
-    }
-};
-
 //mainPage
 expressApp.get("/", (req, res) => {
+    var html = fs.readFileSync("./pages/home.html", 'utf-8');
+
     res.render("index", {
         id: "home",
-        html: page.home.html,
-        css: "<style>" + page.home.css + "</style>",
-        js: "<script> function sendedCode() {" + page.home.js + "};</script>"
+        html: html
     });
 });
 
 //testPage
 expressApp.get("/test/:id", (req, res) => {
     if(req.params.id === settings.testPassword) {
-        res.render("test");
+        res.render("./secret/test");
     } else {
-        res.sendStatus(404);
+        res.render("./error/404");
         console.error("Warning: Test page password is incorrect");
     };
 });
@@ -72,13 +45,13 @@ expressApp.get("/test/:id", (req, res) => {
 //Admin Settings Page
 expressApp.get("/admin/:id", (req, res) => {
     if(req.params.id === settings.adminPassword) {
-        res.render("admin", {
+        res.render("./secret/admin", {
             adminPass: settings.adminPassword,
             testPass: settings.testPassword
         });
         console.error("Warning: Entered the admin page");
     } else {
-        res.sendStatus(404);
+        res.render("./error/404");
         console.error("Warning: Admin page password is incorrect");
     };
 });
@@ -86,26 +59,15 @@ expressApp.get("/admin/:id", (req, res) => {
 //otherPages
 expressApp.get("/:page", (req, res) => {
     try {
+        var text = fs.readFileSync("./pages/" + req.params.page + ".html", 'utf-8');
+
         res.render("index", {
             id: req.params.page,
-            html: page[req.params.page].html,
-            css: "<style>" + page[req.params.page].css + "</style>",
-            js: "<script> function sendedCode() {" + page[req.params.page].js +"};</script>"
+            html: text
         });
     } catch(e) {
-        res.sendStatus(404);
+        res.render("./error/404");
     };
-});
-
-//socket.io
-io.on('changeAdminPass', function(pass){
-    settings.adminPassword = pass;
-    fs.writeFile('settings.json', JSON.stringify(settings, null, 2), (err) => {if(err) {console.error("Error:" + err);}});
-});
-
-io.on('changeTestPass', function(pass){
-    settings.adminPassword = pass;
-    fs.writeFile('settings.json', JSON.stringify(settings, null, 2), (err) => {if(err) {console.error("Error:" + err);}});
 });
 
 //Start server
