@@ -19,6 +19,20 @@ expressApp.set("view engine", "ejs");
 //Static file settings
 expressApp.use('/files', express.static('files'));
 
+//consoleColor
+function consoleColor(text,color) {
+    if(color === "red") {
+        console.log("\u001b[31m" + text);
+    } else if(color === "green") {
+        console.log("\u001b[32m" + text);
+    } else if(color === "yellow") {
+        console.log("\u001b[33m" + text);
+    };
+
+    //reset
+    console.log("\u001b[0m");
+};
+
 //Load json
 const settings = JSON.parse(fs.readFileSync('settings.json'));
 
@@ -37,8 +51,11 @@ expressApp.get("/test/:id", (req, res) => {
     if(req.params.id === settings.testPassword) {
         res.render("./secret/test");
     } else {
-        res.render("./error/404");
-        console.error("Warning: Test page password is incorrect");
+        res.render("error", {
+            code: "404",
+            message: "page not found"
+        });
+        consoleColor("Warning: Test page password is incorrect","red");
     };
 });
 
@@ -49,10 +66,13 @@ expressApp.get("/admin/:id", (req, res) => {
             adminPass: settings.adminPassword,
             testPass: settings.testPassword
         });
-        console.error("Warning: Entered the admin page");
+        consoleColor("Warning: Entered the admin page","yellow");
     } else {
-        res.render("./error/404");
-        console.error("Warning: Admin page password is incorrect");
+        res.render("error", {
+            code: "404",
+            message: "page not found"
+        });
+        consoleColor("Warning: Admin page password is incorrect","red");
     };
 });
 
@@ -66,11 +86,14 @@ expressApp.get("/:page", (req, res) => {
             html: text
         });
     } catch(e) {
-        res.render("./error/404");
+        res.render("error", {
+            code: "404",
+            message: "page not found"
+        });
     };
 });
 
 //Start server
 server.listen(process.env.PORT || 80, () => {
-    console.log("Server has run on port 80.");
+    consoleColor("Server has run on port 80.","green");
 });

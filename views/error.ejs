@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error | <%= code %></title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+        body {
+            background-color: azure;
+        }
+
+        div.message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            width: 90%;
+            height: 80%;
+            color: #363636;
+            text-align: center;
+        }
+
+        div.message p {
+            font-size: 160%;
+        }
+
+        div.message button {
+            margin: 30px 0 0 0;
+            font-size: 140%;
+            border: none;
+            background-color: transparent;
+            text-decoration: underline rgb(122, 122, 122);
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <p>Error: <%= message %></p>
+        <p>Code: <%= code %></p>
+        <button onclick="history.back();">Go back to previous page</button>
+    </div>
+</body>
+</html>
