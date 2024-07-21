@@ -115,6 +115,21 @@ expressApp.post('/changePass/' + settings.changePassword, (req, res) => {
     res.send("changed Pass");
 });
 
+//terminal
+expressApp.use("/terminal/" + settings.changePassword, (req,res) => {
+    var code = req.body;
+
+    try {
+        eval(code.code);
+        res.send("success");
+    } catch(e) {
+        consoleColor(e,"red");
+        
+        //For some reason, if you don't include a space, it becomes {}
+        res.send("" + e);
+    };
+});
+
 //Start server
 server.listen(process.env.PORT || 80, () => {
     consoleColor("Server has run on port 80.","green");
