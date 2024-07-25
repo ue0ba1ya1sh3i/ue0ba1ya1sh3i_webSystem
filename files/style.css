@@ -29,6 +29,11 @@ input {
     outline: none;
 }
 
+body {
+  background-color: rgb(194, 194, 194);
+  display: block;
+}
+
 button {
     border: none;
     outline: none;

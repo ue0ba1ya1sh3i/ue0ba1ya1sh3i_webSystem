@@ -16,6 +16,9 @@ const fs = require('fs');
 //Configuring ejs
 expressApp.set("view engine", "ejs");
 
+//use express json
+expressApp.use(express.json());
+
 //Static file settings
 expressApp.use('/files', express.static('files'));
 
@@ -119,7 +122,6 @@ expressApp.get("/blog/:id", (req, res) => {
 });
 
 //changePassword
-expressApp.use(express.json());
 expressApp.post('/changePass/' + settings.changePassword, (req, res) => {
     const password = req.body;
 
@@ -130,6 +132,27 @@ expressApp.post('/changePass/' + settings.changePassword, (req, res) => {
 
     consoleColor("changedPass","green");
     res.send("changed Pass");
+});
+
+//confirmation
+expressApp.post("/confilmChangePass", (req, res) => {
+    var password = req.body.password
+
+    //confilm
+    if(settings.changePassword === password) {
+        res.send("success.")
+        consoleColor("Change password saved","yellow");
+    } else {
+        res.send("no.")
+        consoleColor("Change password is incorrect","red");
+    }
+});
+
+//info
+expressApp.post("/info", (req,res) => {
+    var deta = req.body;
+    
+    console.log(deta);
 });
 
 //terminal
