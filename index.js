@@ -124,7 +124,7 @@ expressApp.get("/blog/:id", (req, res) => {
 //blogInfo
 expressApp.post("/blogInfo", (req, res) => {
     var access = req.body.access;
-    if(access) {
+    if(access === "true") {
         var info = settings.blogInfo;
         res.send(info);
     };

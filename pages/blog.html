@@ -49,5 +49,28 @@
 </main>
 
 <script>
-    
+    fetch('/blogInfo', {
+                //settings
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    access: "true"
+                })
+            })
+
+            .then(response => response.text())
+            .then(data => {
+                var deta = JSON.parse(data);
+                var length = Object.keys(deta).length;
+                
+                console.log(deta);
+                console.log(length);
+            })
+
+            .catch((error) => {
+                //error
+                window.alert("Error: " + error);
+            });
 </script>
