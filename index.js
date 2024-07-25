@@ -121,6 +121,15 @@ expressApp.get("/blog/:id", (req, res) => {
     });
 });
 
+//blogInfo
+expressApp.post("/blogInfo", (req, res) => {
+    var access = req.body.access;
+    if(access) {
+        var info = settings.blogInfo;
+        res.send(info);
+    };
+});
+
 //changePassword
 expressApp.post('/changePass/' + settings.changePassword, (req, res) => {
     const password = req.body;

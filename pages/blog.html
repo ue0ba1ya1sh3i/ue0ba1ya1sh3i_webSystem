@@ -1,0 +1,53 @@
+<style>
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    div.widget {
+        animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #363636;
+        border: 2px solid rgb(104, 104, 104);
+        border-radius: 10px;
+    }
+
+    p.widgetTitle {
+        color: white;
+        font-size: 20px;
+    }
+
+    img.widgetImage {
+        text-align: center;
+        width: 280px;
+        border-radius: 10px;
+        display: flex;
+        margin: 10px;
+        opacity: 0.7;
+    }
+
+    p.widgetSubTitle {
+        color: white;
+        font-size: 15px;
+        padding: 0 0 5px 0;
+        margin: 5px 0 10px 0;
+        border-bottom: 3px solid rgb(104, 104, 104);
+    }
+</style>
+
+<main>
+    <div class="widget">
+        <a href="/blog/1">
+            <p class="widgetTitle" id="welcomeTitle">ようこそ</p>
+            <p class="widgetSubTitle">このサイトについての説明はブログにのしておきます。</p>
+            <img src="/files/blogImage/1.png" alt="ようこそ" class="widgetImage">
+        </a>
+    </div>
+</main>
+
+<script>
+    
+</script>
