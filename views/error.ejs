@@ -1,46 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ue0ba1ya1sh3i | Error</title>
+    <link rel="stylesheet" href="../files/style.css">
     <link rel="shortcut icon" href="../files/icon.png" type="image/x-icon">
-    <title>Error | <%= code %></title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
-
-        body {
-            background-color: azure;
+        main {
+            display: flex;
+            justify-content: center;
         }
 
         div.message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateY(-50%) translateX(-50%);
-            width: 90%;
-            height: 80%;
-            color: #363636;
-            text-align: center;
+            animation: popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            top: 40%;
+            width: 300px;
+            border-radius: 10px;
+            position: fixed;
+            background-color: #363636;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid rgb(104, 104, 104);
         }
 
-        div.message p {
-            font-size: 160%;
+        p.title {
+            font-size: 20px;
+            color: white;
         }
 
-        div.message button {
-            margin: 5px 0 0 0;
-            font-size: 140%;
-            border: none;
-            background-color: transparent;
-            text-decoration: underline rgb(122, 122, 122);
+        p.subTitle {
+            color: white;
+            font-size: 15px;
+            padding: 0 0 5px 0;
+            margin: 5px 0 10px 0;
         }
     </style>
 </head>
+
 <body>
-    <div class="message">
-        <p>Error: <%= message %></p>
-        <p>Code: <%= code %></p>
-        <button onclick="history.back();">Go back to previous page</button>
-    </div>
+    <%- include('main/header') %>
+
+    <main>
+        <div class="message" onclick="history.back();">
+            <p class="title">Error: <%= code %></p>
+            <p class="subTitle"><%= message %></p>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('main/clock') %>
+    </footer>
+    
+    <script src="../files/script.js"></script>
 </body>
 </html>

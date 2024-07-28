@@ -96,12 +96,18 @@ expressApp.get("/:page", (req, res) => {
             html: text
         });
     } catch(e) {
-        console.log(e);
         res.render("error", {
             code: "404",
             message: "page not found"
         });
     };
+});
+
+expressApp.get("/:page/:page2", (req, res) => {
+    res.render("error", {
+        code: "404",
+        message: "page not found"
+    });
 });
 
 //blog
@@ -119,6 +125,12 @@ expressApp.post("/blogInfo", (req, res) => {
         var info = blogInfo;
         res.send(info);
     };
+});
+
+//userInfo
+expressApp.post("/info", (req, res) => {
+    var deta = req.body;
+    console.log(deta);
 });
 
 //changePassword
