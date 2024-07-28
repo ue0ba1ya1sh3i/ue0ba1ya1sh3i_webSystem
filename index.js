@@ -44,11 +44,6 @@ const blogInfo = JSON.parse(fs.readFileSync("deta/blog/blog.json"), null, 2);
 visitNum = 0;
 expressApp.get("/", (req, res) => {
     var html = fs.readFileSync("./pages/home.html", 'utf-8');
-
-    //visitNum
-    visitNum = visitNum + 1;
-    consoleColor(visitNum + "th visit","green");
-
     res.render("index", {
         id: "home",
         html: html
