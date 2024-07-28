@@ -1,6 +1,4 @@
-//Execute the code sent from node.js
-sendedCode();
-
+//viewCookie
 function viewCookie(key) {
     return ((document.cookie + ';').match(key + '=([^¥S;]*)')||[])[1];
 };

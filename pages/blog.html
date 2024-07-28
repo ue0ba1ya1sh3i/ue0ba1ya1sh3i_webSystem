@@ -38,39 +38,42 @@
     }
 </style>
 
-<main>
-    <div class="widget">
-        <a href="/blog/1">
-            <p class="widgetTitle" id="welcomeTitle">ようこそ</p>
-            <p class="widgetSubTitle">このサイトについての説明はブログにのしておきます。</p>
-            <img src="/files/blogImage/1.png" alt="ようこそ" class="widgetImage">
-        </a>
-    </div>
+<main id="main">
+
 </main>
 
 <script>
     fetch('/blogInfo', {
-                //settings
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    access: "true"
-                })
-            })
-
-            .then(response => response.text())
-            .then(data => {
-                var deta = JSON.parse(data);
-                var length = Object.keys(deta).length;
+        //settings
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
                 
-                console.log(deta);
-                console.log(length);
-            })
+        body: JSON.stringify({
+            access: "true"
+        })
+    })
 
-            .catch((error) => {
-                //error
-                window.alert("Error: " + error);
-            });
+    .then(response => response.text())
+    .then(data => {
+        var deta = JSON.parse(data);
+        var length = Object.keys(deta).length;
+
+        //mainProgram
+        for(i = 1; i < length + 1; i++) {
+            document.getElementById("main").insertAdjacentHTML(
+                'beforeend', 
+                '<div class="widget"><a href="/blog/' + i + '"><p class="widgetTitle">' + deta["num" + i].title + '</p><p class="widgetSubTitle">' + deta["num" + i].message + '</p><img src="/files/blogImage/num' + i + '.png" alt="' + deta["num" + i].title + '" class="widgetImage"></a></div>'
+            );
+        };
+    })
+
+    .catch((error) => {
+        //error
+        document.getElementById("main").insertAdjacentHTML(
+            'beforeend', 
+            '<div class="widget"><p class="widgetTitle">エラーが発生しました。</p><p class="widgetSubTitle">Error: ' + error + '</p></div>'
+        );
+    });
 </script>

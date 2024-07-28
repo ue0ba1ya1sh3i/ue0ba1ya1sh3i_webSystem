@@ -38,6 +38,7 @@ function consoleColor(text,color) {
 
 //Load json
 const settings = JSON.parse(fs.readFileSync('settings.json'), null, 2);
+const blogInfo = JSON.parse(fs.readFileSync("deta/blog.json"), null, 2);
 
 //mainPage
 visitNum = 0;
@@ -89,13 +90,10 @@ expressApp.get("/admin/:id", (req, res) => {
 expressApp.get("/:page", (req, res) => {
     try {
         var text = fs.readFileSync("./pages/" + req.params.page + ".html", 'utf-8');
-        var js = frontJS[req.params.page];
-        console.log(js);
 
         res.render("index", {
             id: req.params.page,
-            html: text,
-            js: "<script>function sendedCode() {" + js + "};</script>"
+            html: text
         });
     } catch(e) {
         console.log(e);
@@ -105,13 +103,6 @@ expressApp.get("/:page", (req, res) => {
         });
     };
 });
-
-//frontJS
-var frontJS = {
-    blog: "",
-    myApp: "",
-    settings: ""
-};
 
 //blog
 expressApp.get("/blog/:id", (req, res) => {
@@ -125,7 +116,7 @@ expressApp.get("/blog/:id", (req, res) => {
 expressApp.post("/blogInfo", (req, res) => {
     var access = req.body.access;
     if(access === "true") {
-        var info = settings.blogInfo;
+        var info = blogInfo;
         res.send(info);
     };
 });
@@ -155,13 +146,6 @@ expressApp.post("/confilmChangePass", (req, res) => {
         res.send("no.")
         consoleColor("Change password is incorrect","red");
     }
-});
-
-//info
-expressApp.post("/info", (req,res) => {
-    var deta = req.body;
-    
-    console.log(deta);
 });
 
 //terminal

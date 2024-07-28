@@ -1,11 +1,1 @@
-{
-    "testPassword":"1364",
-    "adminPassword":"1364",
-    "changePassword":"A0r1a1t3a",
-    "blogInfo": {
-        "1": {
-            "title": "ようこそ",
-            "message": "このサイトについての説明はブログにのしておきます。"
-        }
-    }
-}
+{"testPassword":"1364","adminPassword":"1364","changePassword":"A0r1a1t3a"}
