@@ -51,8 +51,7 @@ expressApp.get("/", (req, res) => {
 
     res.render("index", {
         id: "home",
-        html: html,
-        js: "<script>function sendedCode() {document.getElementById('welcomeTitle').textContent = 'ようこそ(総訪問数: " + visitNum + "回目)';};</script>"
+        html: html
     });
 });
 
@@ -103,19 +102,22 @@ expressApp.get("/:page", (req, res) => {
     };
 });
 
-expressApp.get("/:page/:page2", (req, res) => {
-    res.render("error", {
-        code: "404",
-        message: "page not found"
-    });
-});
-
 //blog
 expressApp.get("/blog/:id", (req, res) => {
-    res.render("error", {
-        code: "404",
-        message: "page not found"
-    });
+    try {
+        var text = fs.readFileSync("./deta/blog/num" + req.params.id + ".html", 'utf-8');
+
+        res.render("index", {
+            id: "Blog | num" + req.params.id,
+            html: text
+        });
+    } catch(e) {
+        console.error(e);
+        res.render("error", {
+            code: "404",
+            message: "page not found"
+        });
+    }
 });
 
 //blogInfo
