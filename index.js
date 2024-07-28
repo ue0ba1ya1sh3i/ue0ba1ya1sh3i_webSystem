@@ -38,7 +38,7 @@ function consoleColor(text,color) {
 
 //Load json
 const settings = JSON.parse(fs.readFileSync('settings.json'), null, 2);
-const blogInfo = JSON.parse(fs.readFileSync("deta/blog.json"), null, 2);
+const blogInfo = JSON.parse(fs.readFileSync("deta/blog/blog.json"), null, 2);
 
 //mainPage
 visitNum = 0;
