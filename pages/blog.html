@@ -43,7 +43,7 @@
 </main>
 
 <script>
-    fetch('/blogInfo', {
+    fetch('/blog/info', {
         //settings
         method: 'POST',
         headers: {
@@ -64,7 +64,7 @@
         for(i = 1; i < length + 1; i++) {
             document.getElementById("main").insertAdjacentHTML(
                 'beforeend', 
-                '<div class="widget"><a href="/blog/' + i + '"><p class="widgetTitle">' + deta["num" + i].title + '</p><p class="widgetSubTitle">' + deta["num" + i].message + '</p><img src="/files/blogImage/num' + i + '.png" alt="' + deta["num" + i].title + '" class="widgetImage"></a></div>'
+                '<div class="widget"><a href="/blog/' + i + '"><p class="widgetTitle">' + deta["num" + i].title + '</p><p class="widgetSubTitle">' + deta["num" + i].subTitle + '</p><img src="/files/blogImage/num' + i + '.png" alt="' + deta["num" + i].title + '" class="widgetImage"></a></div>'
             );
         };
     })
