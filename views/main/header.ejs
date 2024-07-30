@@ -3,8 +3,6 @@
         top: 0;
         position: fixed;
         width: 100%;
-        padding: 10px;
-        background-color: #363636;
         z-index: 100;
     }
 
@@ -18,13 +16,43 @@
         color: white;
     }
 
+    @keyframes headerDisappear {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-500px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes headerAppear {
+        0% {
+            transform: translateY(-500px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     @media (max-width: 600px) {
         div.headerAnimationS {
-            animation: slideRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: headerAppear 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        div.headerAnimationE {
+            animation: headerDisappear 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         div#headerTitle {
             display: block;
+            background-color: #363636;
+            padding: 10px;
         }
 
         div#headerLink a {
@@ -32,8 +60,9 @@
         }
 
         div#headerLink {
-            border-bottom: 3px solid rgb(104, 104, 104);
+            display: grid;
             border-top: 3px solid rgb(104, 104, 104);
+            background-color: #363636;
         }
 
         a#headerLetter {
@@ -101,19 +130,23 @@
     function hamburger(check) {
         if(check) {
             hamburgerLink.style.display = "grid";
+            hamburgerLink.classList.remove("headerAnimationE");
             hamburgerLink.classList.add("headerAnimationS");
         } else {
-            hamburgerLink.style.display = "none";
+            hamburgerLink.classList.remove("headerAnimationS");
+            hamburgerLink.classList.add("headerAnimationE");
         };
     };
 
     if(window.innerWidth < 600) {
-        hamburger(false);
-    };
+        hamburgerLink.style.display = "none";
+    } else {
+        hamburgerLink.style.display = "flex";
+    }
 
     window.addEventListener('resize', function() {
         if(window.innerWidth < 600) {
-            hamburger(false);
+            hamburgerLink.style.display = "none";
         } else {
             hamburgerLink.style.display = "flex";
         }
