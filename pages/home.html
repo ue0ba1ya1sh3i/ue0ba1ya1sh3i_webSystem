@@ -29,6 +29,13 @@
         opacity: 0.7;
     }
 
+    div.widgetImage {
+        overflow: hidden; 
+        height: 225px; 
+        display: flex; 
+        align-items: center;
+    }
+
     p.widgetSubTitle {
         color: white;
         font-size: 15px;
@@ -40,34 +47,42 @@
 
 <main>
     <div class="widget">
-        <a href="/blog/1">
-            <p class="widgetTitle" id="welcomeTitle">ようこそ</p>
-            <p class="widgetSubTitle">このサイトについての説明はブログにのしておきます。</p>
-            <img src="/files/blogImage/num1.png" alt="ようこそ" class="widgetImage">
+        <a href="/App">
+            <p class="widgetTitle">アプリ</p>
+            <p class="widgetSubTitle">開発中のサービスやすでに完成しているプログラムを試したりできるサービスです。</p>
+            <div class="widgetImage">
+                <img src="/files/notice/app.png" alt="アプリ" class="widgetImage">
+            </div>
         </a>
     </div>
 
     <div class="widget">
-        <a href="/myApp">
-            <p class="widgetTitle">MyApp</p>
-            <p class="widgetSubTitle">このサイトは開発して公開しているプログラムを試すことができます</p>
-            <img src="/files/notice/apps.png" alt="アプリ" class="widgetImage">
+        <a href="/blog/1">
+            <p class="widgetTitle">ようこそ</p>
+            <p class="widgetSubTitle">ue0ba1ya1sh3iの概要</p>
+            <div class="widgetImage">
+                <img src="/deta/blog/image/num1.png" alt="ようこそ" class="widgetImage">
+            </div>
         </a>
     </div>
 
     <div class="widget">
         <a href="/blog">
-            <p class="widgetTitle">Blog</p>
-            <p class="widgetSubTitle">これは私ブログ(ページのお知らせなど)を知らせているページです。</p>
-            <img src="/files/notice/blog.png" alt="りんご" class="widgetImage">
+            <p class="widgetTitle">ブログ</p>
+            <p class="widgetSubTitle">このページの状況などを詳しく書いているサービスです。</p>
+            <div class="widgetImage">
+                <img src="/files/notice/blog.png" alt="ブログ" class="widgetImage">
+            </div>
         </a>
     </div>
 
     <div class="widget">
         <a href="/">
             <p class="widgetTitle">テンプレート</p>
-            <p class="widgetSubTitle">このウィジェットはテンプレートです、この部分は二行にしてくれるとうれしいです。</p>
-            <img src="/files/notice/apple.png" alt="りんご" class="widgetImage">
+            <p class="widgetSubTitle">このウィジェットはテンプレートです</p>
+            <div class="widgetImage">
+                <img src="/files/notice/apple.png" alt="りんご" class="widgetImage">
+            </div>
         </a>
     </div>
 </main>

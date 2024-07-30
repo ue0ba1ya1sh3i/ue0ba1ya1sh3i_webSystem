@@ -19,6 +19,10 @@
     }
 
     @media (max-width: 600px) {
+        div.headerAnimationS {
+            animation: slideRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
         div#headerTitle {
             display: block;
         }
@@ -29,6 +33,7 @@
 
         div#headerLink {
             border-bottom: 3px solid rgb(104, 104, 104);
+            border-top: 3px solid rgb(104, 104, 104);
         }
 
         a#headerLetter {
@@ -82,7 +87,7 @@
 
     <div id="headerLink">
         <a href="/">- Home</a>
-        <a href="/myApp">- MyApp</a>
+        <a href="/app">- App</a>
         <a href="/settings">- Settings</a>
         <a href="/blog">- Blog</a>
     </div>
@@ -96,10 +101,10 @@
     function hamburger(check) {
         if(check) {
             hamburgerLink.style.display = "grid";
-            hamburgerLetter.style.borderBottom = "3px solid #686868";
+            hamburgerLink.classList.add("headerAnimationS");
         } else {
             hamburgerLink.style.display = "none";
-            hamburgerLetter.style.borderBottom = "";
+            hamburgerLink.classList.add("headerAnimationS");
         };
     };
 
