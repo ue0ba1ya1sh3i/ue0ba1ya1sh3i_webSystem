@@ -21,6 +21,18 @@
     -moz-user-select: none;
 }
 
+/*scrollBar*/
+::-webkit-scrollbar {
+  background: #363636;
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(104, 104, 104);
+  border-radius: 10px;
+}
+
 a {
     text-decoration: none;
 }
