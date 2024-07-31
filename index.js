@@ -13,7 +13,6 @@ const io = new Server(server);
 //fs
 const fs = require('fs');
 
-
 //Configuring ejs
 expressApp.set("view engine", "ejs");
 
@@ -40,9 +39,7 @@ function consoleColor(text,color) {
     console.log("\u001b[0m");
 };
 
-
 //mainPage
-visitNum = 0;
 expressApp.get("/", (req, res) => {
     var html = fs.readFileSync("./pages/home.html", 'utf-8');
 
@@ -82,7 +79,6 @@ expressApp.get("/:page", (req, res) => {
     };
 });
 
-
 //Importing a blogPage
 const blogRoot = require("./root/blog");
 expressApp.use("/blog", blogRoot);
@@ -91,7 +87,6 @@ expressApp.use("/blog", blogRoot);
 const adminRoot = require("./root/admin");
 expressApp.use("/admin", adminRoot);
 
-
 //userInfo
 expressApp.post("/info", (req, res) => {
     var deta = req.body;
@@ -99,7 +94,6 @@ expressApp.post("/info", (req, res) => {
 
     res.send("success");
 });
-
 
 //Start server
 server.listen(process.env.PORT || 80, () => {
