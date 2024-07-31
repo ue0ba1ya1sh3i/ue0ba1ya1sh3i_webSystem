@@ -6,6 +6,7 @@ const fs = require("fs");
 //loadJson
 const settings = JSON.parse(fs.readFileSync('settings.json'), null, 2);
 const blogInfo = JSON.parse(fs.readFileSync('deta/blog/blog.json'), null, 2);
+const appInfo = JSON.parse(fs.readFileSync("deta/app/app.json"), null, 2);
 
 //use express json
 expressApp.use(express.json());
@@ -90,6 +91,23 @@ root.post("/addBlog/" + settings.changePassword, (req,res) => {
     fs.writeFileSync('./deta/blog/blog.json', JSON.stringify(blogInfo));
 
     fs.writeFile('./deta/blog/num' + length + ".html", "", (err) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send("success");
+        };
+    });
+});
+
+root.post("/addApp/" + settings.changePassword, (req,res) => {
+    //get
+    var length = Object.keys(appInfo).length + 1;
+
+    //mainCode
+    eval("appInfo.num" + length + " = req.body");
+    fs.writeFileSync('./deta/app/app.json', JSON.stringify(appInfo));
+
+    fs.writeFile('./deta/app/num' + length + ".html", "", (err) => {
         if (err) {
             res.send(err);
         } else {

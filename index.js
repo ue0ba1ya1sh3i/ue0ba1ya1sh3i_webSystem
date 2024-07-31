@@ -83,6 +83,10 @@ expressApp.get("/:page", (req, res) => {
 const blogRoot = require("./root/blog");
 expressApp.use("/blog", blogRoot);
 
+//Importing a appPage
+const appRoot = require("./root/app");
+expressApp.use("/app", appRoot);
+
 //Importing a adminPage
 const adminRoot = require("./root/admin");
 expressApp.use("/admin", adminRoot);
