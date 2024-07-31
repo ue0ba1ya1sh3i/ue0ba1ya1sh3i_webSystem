@@ -18,6 +18,7 @@ expressApp.set("view engine", "ejs");
 
 //Static file settings
 expressApp.use('/files', express.static('files'));
+expressApp.use('/deta', express.static('deta'));
 
 //Load json
 const settings = JSON.parse(fs.readFileSync('settings.json'), null, 2);
