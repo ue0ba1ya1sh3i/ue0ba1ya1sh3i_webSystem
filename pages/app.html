@@ -22,28 +22,34 @@
 
     img.widgetImage {
         text-align: center;
-        width: 280px;
-        border-radius: 10px;
+        width: 290px;
         display: flex;
-        margin: 10px;
         opacity: 0.7;
+    }
+
+    div.widgetImage {
+        margin: 10px 0 5px 0;
+        overflow: hidden; 
+        height: 200px; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
     }
 
     p.widgetSubTitle {
         color: white;
         font-size: 15px;
         padding: 0 0 5px 0;
-        margin: 5px 0 10px 0;
         border-bottom: 3px solid rgb(104, 104, 104);
     }
 </style>
 
 <main id="main">
-
+    <!--This widget goes here-->
 </main>
 
 <script>
-    fetch('/app/info', {
+    fetch('/app/info/', {
         //settings
         method: 'POST',
         headers: {
@@ -64,16 +70,13 @@
         for(i = 1; i < length + 1; i++) {
             document.getElementById("main").insertAdjacentHTML(
                 'beforeend', 
-                '<div class="widget"><a href="/app/' + i + '"><p class="widgetTitle">' + deta["num" + i].title + '</p><p class="widgetSubTitle">' + deta["num" + i].subTitle + '</p><img src="/deta/app/image/num' + i + '.png" alt="' + deta["num" + i].title + '" class="widgetImage"></a></div>'
+                '<div class="widget"><a href="/blog/' + i + '"><p class="widgetTitle">' + deta["num" + i].title + '</p><p class="widgetSubTitle">' + deta["num" + i].subTitle + '</p><div class="widgetImage"><img src="/deta/blog/image/num' + i + '.png" alt="' + deta["num" + i].title + '" class="widgetImage"></div></a></div>'
             );
         };
     })
 
     .catch((error) => {
         //error
-        document.getElementById("main").insertAdjacentHTML(
-            'beforeend', 
-            '<div class="widget"><p class="widgetTitle">エラーが発生しました。</p><p class="widgetSubTitle">Error: ' + error + '</p></div>'
-        );
+        widgetError("/app");
     });
 </script>
