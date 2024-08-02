@@ -16,6 +16,8 @@
     - ### Migrating current issues to features on github
     - ### Double-check your repository settings
     - ### Setting up security
+- ### Create a program to save a log when something happens
+- ### Build a chat app
 
 <a id="InProduction"></a>
 
