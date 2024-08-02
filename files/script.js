@@ -20,3 +20,30 @@ fetch("https://ipinfo.io?callback")
 function viewCookie(key) {
     return ((document.cookie + ';').match(key + '=([^¥S;]*)')||[])[1];
 };
+
+//writeCookie
+function writeCookie(key,value) {
+    document.cookie = key + "=" + value;
+};
+
+//widgetError
+function widgetError(link,title,message) {
+    if(title === undefined) {
+        if(message === undefined) {
+            document.getElementById("main").insertAdjacentHTML(
+                'beforeend', 
+                '<div class="widget"><a href="' + link + '"><p class="widgetTitle">An error has occurred.</p><p class="widgetSubTitle">Please try again in a few seconds.</p></a></div>'
+            );
+        } else {
+            document.getElementById("main").insertAdjacentHTML(
+                'beforeend', 
+                '<div class="widget"><a href="' + link + '"><p class="widgetTitle">An error has occurred.</p><p class="widgetSubTitle">' + message + '</p></a></div>'
+            );
+        };
+    } else {
+        document.getElementById("main").insertAdjacentHTML(
+            'beforeend', 
+            '<div class="widget"><a href="' + link + '"><p class="widgetTitle">' + title + '</p><p class="widgetSubTitle">' + message + '</p></a></div>'
+        );
+    };
+};
