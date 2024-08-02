@@ -22,8 +22,12 @@ function viewCookie(key) {
 };
 
 //writeCookie
-function writeCookie(key,value) {
-    document.cookie = key + "=" + value;
+function writeCookie(key,value,day) {
+    if(day === undefined) {
+        document.cookie = key + "=" + value;
+    } else {
+        document.cookie = key + "=" + value + "; max-age=" + day + ";";
+    };
 };
 
 //widgetError
@@ -47,3 +51,22 @@ function widgetError(link,title,message) {
         );
     };
 };
+
+//colorMode
+function colorMode() {
+    var cssRoot = document.querySelector(':root');
+
+    if(viewCookie("darkMode") === "true") {
+        cssRoot.style.setProperty('--bodyBackground', 'rgb(20, 20, 20)');
+        cssRoot.style.setProperty('--fontColor', 'black');
+        cssRoot.style.setProperty('--normalColor', 'rgb(190, 190, 190)');
+        cssRoot.style.setProperty('--subColor', 'rgb(150, 150, 150)');
+    } else {
+        cssRoot.style.setProperty('--bodyBackground', 'rgb(194, 194, 194)');
+        cssRoot.style.setProperty('--fontColor', 'white');
+        cssRoot.style.setProperty('--normalColor', '#363636');
+        cssRoot.style.setProperty('--subColor', 'rgb(104, 104, 104)');
+    };
+};
+
+colorMode();

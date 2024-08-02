@@ -21,6 +21,14 @@
     -moz-user-select: none;
 }
 
+/*color*/
+:root {
+  --bodyBackground: rgb(194, 194, 194);
+  --fontColor: white;
+  --normalColor: #363636;
+  --subColor: rgb(104, 104, 104);
+}
+
 /*scrollBar*/
 ::-webkit-scrollbar {
   background: #363636;
@@ -43,7 +51,7 @@ input {
 }
 
 body {
-  background-color: rgb(194, 194, 194);
+  background-color: var(--bodyBackground);
   display: block;
 }
 
