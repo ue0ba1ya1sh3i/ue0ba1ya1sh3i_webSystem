@@ -31,13 +31,13 @@
 
 /*scrollBar*/
 ::-webkit-scrollbar {
-  background: #363636;
+  background: var(--headerColor);
   width: 10px;
   height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(104, 104, 104);
+  background-color: var(--subColor);
   border-radius: 10px;
 }
 

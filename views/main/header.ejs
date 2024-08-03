@@ -12,7 +12,7 @@
 
     div#headerLink {
         display: grid;
-        background-color: #363636;
+        background: var(--headerColor);
         padding: 10px;
     }
 
@@ -59,7 +59,7 @@
             display: block;
             padding: 10px;
             position: static;
-            background-color: #363636;
+            background-color: var(--headerColor);
         }
 
         div#headerLink a {
@@ -67,9 +67,8 @@
         }
 
         div#headerLink {
-            display: grid;
-            position: static;
-            background-color: #363636;
+            background-color: var(--headerColor);
+            border-bottom: 2px solid var(--subColor);
             padding: 0;
             border-top: 3px solid rgb(104, 104, 104);
         }

@@ -57,15 +57,17 @@ function colorMode() {
     var cssRoot = document.querySelector(':root');
 
     if(viewCookie("darkMode") === "true") {
-        cssRoot.style.setProperty('--bodyBackground', 'rgb(20, 20, 20)');
+        cssRoot.style.setProperty('--bodyBackground', '#202124');
         cssRoot.style.setProperty('--fontColor', 'black');
-        cssRoot.style.setProperty('--normalColor', 'rgb(190, 190, 190)');
-        cssRoot.style.setProperty('--subColor', 'rgb(150, 150, 150)');
+        cssRoot.style.setProperty('--normalColor', 'rgb(72, 79, 87)');
+        cssRoot.style.setProperty('--subColor', 'rgb(100, 100, 100)');
+        cssRoot.style.setProperty('--headerColor', '#202124');
     } else {
         cssRoot.style.setProperty('--bodyBackground', 'rgb(194, 194, 194)');
         cssRoot.style.setProperty('--fontColor', 'white');
         cssRoot.style.setProperty('--normalColor', '#363636');
         cssRoot.style.setProperty('--subColor', 'rgb(104, 104, 104)');
+        cssRoot.style.setProperty('--headerColor', '#363636');
     };
 };
 
